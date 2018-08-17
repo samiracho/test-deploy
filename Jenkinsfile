@@ -27,7 +27,7 @@ node {
         }
        
         stage ('Build Docker image') {
-            sh "cp ${scriptFolder}\Dockerfile ."
+            sh "cp ${scriptFolder}\\Dockerfile ."
             sh "docker build -t ${dockerImageTag} ."
         }
         
