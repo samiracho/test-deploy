@@ -11,6 +11,7 @@ node {
    
     stage('Checkout code') {
       git 'https://github.com/guipal/apisamplejava.git'
+      git branch: "${branch}", url: "${repository}"
       commitHash = sh(returnStdout: true, script: 'git rev-parse HEAD').trim()
     }
    
@@ -27,7 +28,7 @@ node {
         }
        
         stage ('Build Docker image') {
-            sh "cp ${scriptFolder}\\Dockerfile ."
+            sh "cp ${scriptFolder}/Dockerfile ."
             sh "docker build -t ${dockerImageTag} ."
         }
         
