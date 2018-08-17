@@ -1,13 +1,13 @@
 node {
     def mvnHome = tool 'M3'
     def projectName = 'sandbox-000000'
-    def k8sFilePath = "K8sfile"
     def appName = 'apisamplejava'
     def dockerImageTag  = "eu.gcr.io/${projectName}/${appName}:${profile}-${image_tag}"
     def build = ( "${action}" == "build and deploy" || "${action}" == "only build") ? "true" : "false"
     def deploy = ( "${action}" == "build and deploy" || "${action}" == "only deploy") ? "true" : "false"
     def commitHash = ""
     def scriptFolder = "${WORKSPACE}@script"
+    def k8sFilePath = "scriptFolder/K8sfile"
    
     stage('Checkout code') {
       git branch: "${branch}", url: "${repository}"
