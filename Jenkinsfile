@@ -7,7 +7,7 @@ node {
     def deploy = ( "${action}" == "build and deploy" || "${action}" == "only deploy") ? "true" : "false"
     def commitHash = ""
     def scriptFolder = "${WORKSPACE}@script"
-    def k8sFilePath = "scriptFolder/K8sfile"
+    def k8sFilePath = "${scriptFolder}/K8sfile"
    
     stage('Checkout code') {
       git branch: "${branch}", url: "${repository}"
