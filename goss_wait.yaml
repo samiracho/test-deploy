@@ -1,0 +1,12 @@
+file:
+  /goss/docker_output.log:
+    exists: true
+    contains:
+    - \'Started SampleController\'
+http:
+  http://localhost:8080:
+    status:
+      gt: 0
+command:
+  sleep 1:
+    exit-status: 0
