@@ -2,7 +2,7 @@ file:
   /goss/docker_output.log:
     exists: true
     contains:
-    - \'Tomcat started\'
+    - 'Started SampleController in'
 http:
   http://localhost:8080:
     status:
